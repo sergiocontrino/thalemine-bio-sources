@@ -1,4 +1,0 @@
-<project name="araport-fasta-tasks" default="default" basedir=".">
-  <description>build araport-fasta tasks</description>
-  <import file="../../../../../imbuild/library.xml"/> 
-</project>
