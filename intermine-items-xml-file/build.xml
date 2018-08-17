@@ -1,8 +1,0 @@
-
-<project name="thalemine-static" default="default" basedir=".">
-  <description>build, test, package thalemine-static</description>
-
-  <import file="../../../imbuild/source.xml"/>
-
-</project>
-
