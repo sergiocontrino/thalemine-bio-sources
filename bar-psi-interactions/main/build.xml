@@ -1,4 +1,0 @@
-<project name="bar-psi-interactions-tasks" default="default" basedir=".">
-  <description>build bar-psi-interactions tasks</description>
-  <import file="../../../../../imbuild/library.xml"/> 
-</project>

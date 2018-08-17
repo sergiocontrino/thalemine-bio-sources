@@ -1,4 +1,0 @@
-<project name="salk-tdnaseq-gff-tasks" default="default" basedir=".">
-  <description>build salk-tdnaseq-gff tasks</description>
-  <import file="../../../../../imbuild/library.xml"/> 
-</project>
