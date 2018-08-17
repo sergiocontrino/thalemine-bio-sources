@@ -1,0 +1,25 @@
+rootProject.name = 'bio-sources'
+include ':bio-source-araport-gff'
+project(':bio-source-araport-gff').projectDir = new File(settingsDir, './araport-gff')
+include ':bio-source-bar-expressions'
+project(':bio-source-bar-expressions').projectDir = new File(settingsDir, './bar-expressions')
+include ':bio-source-bar-interactions'
+project(':bio-source-bar-interactions').projectDir = new File(settingsDir, './bar-interactions')
+include ':bio-source-bar-lookups'
+project(':bio-source-bar-lookups').projectDir = new File(settingsDir, './bar-lookups')
+include ':bio-source-bar-psi-interactions'
+project(':bio-source-bar-psi-interactions').projectDir = new File(settingsDir, './bar-psi-interactions')
+include ':bio-source-chado-db'
+project(':bio-source-chado-db').projectDir = new File(settingsDir, './chado-db')
+include ':bio-source-generif'
+project(':bio-source-generif').projectDir = new File(settingsDir, './generif')
+include ':bio-source-po'
+project(':bio-source-po').projectDir = new File(settingsDir, './po')
+include ':bio-source-po-annotation'
+project(':bio-source-po-annotation').projectDir = new File(settingsDir, './po-annotation')
+include ':bio-source-rnaseq-expression'
+project(':bio-source-rnaseq-expression').projectDir = new File(settingsDir, './rnaseq-expression')
+include ':bio-source-salk-tdnaseq-gff'
+project(':bio-source-salk-tdnaseq-gff').projectDir = new File(settingsDir, './salk-tdnaseq-gff')
+include ':bio-source-vcf'
+project(':bio-source-vcf').projectDir = new File(settingsDir, './vcf')
