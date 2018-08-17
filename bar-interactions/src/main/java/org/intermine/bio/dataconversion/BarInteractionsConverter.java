@@ -38,7 +38,7 @@ public class BarInteractionsConverter extends BioDBConverter
             Logger.getLogger(BarInteractionsConverter.class);
     private static final String DATA_SOURCE_NAME = "BAR";
     private static final String DATASET_TITLE = "BAR Interactions data set";
-    private static final int TAXON_ID = 3702;
+    private static final String TAXON_ID = "3702";
     private Map<String, String> genes = new HashMap<String, String>();
     private Map<String, String> publications = new HashMap<String, String>();
     private Map<String, String> terms = new HashMap<String, String>();
@@ -274,7 +274,7 @@ public class BarInteractionsConverter extends BioDBConverter
      * {@inheritDoc}
      */
     @Override
-    public String getDataSetTitle(int taxonId) {
+    public String getDataSetTitle(String taxonId) {
         return DATA_SOURCE_NAME + " Interactions data set";
     }
 

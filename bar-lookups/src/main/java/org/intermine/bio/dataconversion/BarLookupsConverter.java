@@ -235,7 +235,7 @@ public class BarLookupsConverter extends BioDBConverter
      * {@inheritDoc}
      */
     @Override
-    public String getDataSetTitle(int taxonId) {
+    public String getDataSetTitle(String taxonId) {
         return DATA_SOURCE_NAME + "expressions data set";
     }
 

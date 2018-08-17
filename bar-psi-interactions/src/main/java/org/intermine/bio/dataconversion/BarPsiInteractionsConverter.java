@@ -362,7 +362,7 @@ public class BarPsiInteractionsConverter extends BioFileConverter
      * Create and store a Publication item on the first time called.
      *
      * @param primaryId the primaryIdentifier
-     * @param type gene or exon
+     * @param interaction
      * @throws ObjectStoreException
      */
     private Item createPublication(String primaryId, Item interaction) throws ObjectStoreException {

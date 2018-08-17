@@ -294,7 +294,7 @@ public class BarExpressionsConverter extends BioDBConverter
 
     /**
      * builds the in clause string for the sql statement from the elements of the set
-     * @param the set of sample
+     * @param controls the set of sample
      */
     private String getInClause(Set<Integer> controls) {
         StringBuffer sb = new StringBuffer();
@@ -353,7 +353,7 @@ public class BarExpressionsConverter extends BioDBConverter
 
     /**
      * create an experiment
-     * @param bar Id
+     * @param experimentBarId bar Id
      * @param title
      * @param pi
      * @param affiliation
@@ -403,8 +403,8 @@ public class BarExpressionsConverter extends BioDBConverter
 
     /**
      * create a sample
-     * @param experiment bar Id
-     * @param sample bar Id
+     * @param experimentBarId experiment bar Id
+     * @param sampleBarId sample bar Id
      * @param name
      * @param alias
      * @param description
@@ -502,7 +502,7 @@ public class BarExpressionsConverter extends BioDBConverter
 
     /**
      * create sample properties
-     * @param sample bar id
+     * @param sampleBarId sample bar id
      * @param stock
      * @param geneticVar
      * @param tissue
@@ -595,8 +595,8 @@ public class BarExpressionsConverter extends BioDBConverter
 
     /**
      * create sample data (expressions)
-     * @param sample bar id
-     * @param probe
+     * @param sampleBarId sample bar id
+     * @param probeSet probe
      * @param signal
      * @param call
      * @param pValue
@@ -852,7 +852,7 @@ public class BarExpressionsConverter extends BioDBConverter
      * {@inheritDoc}
      */
     @Override
-    public String getDataSetTitle(int taxonId) {
+    public String getDataSetTitle(String taxonId) {
         return getDataSourceName() + " expressions data set";
     }
 
