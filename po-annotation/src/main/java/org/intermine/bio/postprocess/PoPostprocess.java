@@ -19,12 +19,9 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 import org.intermine.bio.util.Constants;
 import org.intermine.model.bio.POAnnotation;
-import org.intermine.model.bio.POEvidence;
-import org.intermine.model.bio.POEvidenceCode;
-import org.intermine.model.bio.Gene;
-import org.intermine.model.bio.OntologyTerm;
-import org.intermine.model.bio.Protein;
-import org.intermine.model.bio.Publication;
+import org.intermine.model.bio.*;
+//import org.intermine.model.bio.POEvidence;
+//import org.intermine.model.bio.POEvidenceCode;
 import org.intermine.objectstore.ObjectStore;
 import org.intermine.objectstore.ObjectStoreException;
 import org.intermine.objectstore.ObjectStoreWriter;
@@ -39,6 +36,7 @@ import org.intermine.objectstore.query.QueryObjectReference;
 import org.intermine.objectstore.query.Results;
 import org.intermine.objectstore.query.ResultsRow;
 import org.intermine.postprocess.PostProcessor;
+import org.intermine.bio.util.PostProcessUtil;
 
 /**
  * Take any POAnnotation objects assigned to proteins and copy them to corresponding genes.
@@ -97,7 +95,7 @@ public class PoPostprocess extends PostProcessor
             }
 
             OntologyTerm term = thisAnnotation.getOntologyTerm();
-            Set<POEvidence> evidence = thisAnnotation.getEvidence();
+            Set<OntologyEvidence> evidence = thisAnnotation.getEvidence();
 
             POAnnotation tempAnnotation;
             try {
@@ -132,7 +130,7 @@ public class PoPostprocess extends PostProcessor
     }
 
     private boolean hasDupes(Map<OntologyTerm, POAnnotation> annotations, OntologyTerm term,
-            Set<POEvidence> evidence, POAnnotation newAnnotation) {
+            Set<OntologyEvidence> evidence, POAnnotation newAnnotation) {
         boolean isDupe = false;
         POAnnotation alreadySeenAnnotation = annotations.get(term);
         if (alreadySeenAnnotation != null) {
@@ -145,13 +143,13 @@ public class PoPostprocess extends PostProcessor
     }
 
     // we've seen this term, merge instead of storing new object
-    private void mergeEvidence(Set<POEvidence> evidence, POAnnotation alreadySeenAnnotation) {
-        for (POEvidence g : evidence) {
-            POEvidenceCode c = g.getCode();
+    private void mergeEvidence(Set<OntologyEvidence> evidence, POAnnotation alreadySeenAnnotation) {
+        for (OntologyEvidence g : evidence) {
+            OntologyAnnotationEvidenceCode c = g.getCode();
             Set<Publication> pubs = g.getPublications();
             boolean foundMatch = false;
-            for (POEvidence alreadySeenEvidence : alreadySeenAnnotation.getEvidence()) {
-                POEvidenceCode alreadySeenCode = alreadySeenEvidence.getCode();
+            for (OntologyEvidence alreadySeenEvidence : alreadySeenAnnotation.getEvidence()) {
+                OntologyAnnotationEvidenceCode alreadySeenCode = alreadySeenEvidence.getCode();
                 Set<Publication> alreadySeenPubs = alreadySeenEvidence.getPublications();
                 // we've already seen this evidence code, just merge pubs
                 if (c.equals(alreadySeenCode)) {
