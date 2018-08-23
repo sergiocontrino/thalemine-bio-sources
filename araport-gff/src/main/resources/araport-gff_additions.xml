@@ -14,7 +14,11 @@
 
   <class name="Transcript" extends="SequenceFeature" is-interface="true">
      <attribute name="briefDescription" type="java.lang.String"/>
+     <collection name="introns" referenced-type="Intron" reverse-reference="transcripts" />
+     <collection name="exons" referenced-type="Exon" reverse-reference="transcripts" />
   </class>
+
+
   <class name="MRNA" extends="Transcript" is-interface="true">
      <attribute name="confidenceClass" type="java.lang.String"/>
      <attribute name="confidenceRating" type="java.lang.String"/>
